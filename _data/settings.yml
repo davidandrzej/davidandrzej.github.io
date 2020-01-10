@@ -13,6 +13,7 @@ menu:
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
+- {icon: 'globe', link: 'http://www.david-andrzejewski.com'}
 - {icon: 'github', link: 'https://github.com/davidandrzej'}
 - {icon: 'twitter', link: 'https://twitter.com/davidandrzej'}
 - {icon: 'linkedin', link: 'https://www.linkedin.com/in/davidandrzejewski'}
