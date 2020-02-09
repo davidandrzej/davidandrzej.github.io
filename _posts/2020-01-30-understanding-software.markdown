@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Understanding software behavior
 published: 2020-01-30
 image: outdoor-kitchen.jpg

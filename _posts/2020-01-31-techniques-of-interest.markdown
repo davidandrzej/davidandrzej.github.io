@@ -1,11 +1,12 @@
 ---
+layout: post
 title: Techniques of interest
 published: 2020-01-31
 image: techniques.png
 ---
 
-> *Note:* cross-posted from (my
-   website)[http://www.david-andrzejewski.com/interests.html], where I
+> *Note:* cross-posted from [my
+   website](http://www.david-andrzejewski.com/interests.html), where I
    recently attempted to jot down some brief descriptions of the
    problem domain I'm currently focused on as well as some tools and
    techniques I am particularly interested in.

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Practical machine learning tricks from the KDD 2011 best industry paper "Detecting Adversarial Advertisements in the Wild" by D. Sculley et al
 published: 2012-07-26
 image: stocktonst.jpg
