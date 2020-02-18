@@ -2,7 +2,7 @@
 layout: post
 title: Probabilistic modeling of crime scene blood
 published: 2020-02-17
-image: tufts.jpg
+image: northeastern.jpg
 ---
 
 > Disclaimer: IANAFB (I Am Not A Forensic Biologist): what follows
