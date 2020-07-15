@@ -17,6 +17,16 @@
   Base
 */
 
+/*
+ Added based on https://thornelabs.net/posts/centering-images-with-jekyll-and-markdown.html
+*/
+
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
+
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
