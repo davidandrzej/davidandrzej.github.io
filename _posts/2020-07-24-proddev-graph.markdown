@@ -1,36 +1,35 @@
 ---
 layout: post
-title: Graph theory for product development
-published: 2020-07-11
+title: Graphs, combinatorial optimization, and product development
+published: 2020-07-24
 image: "project-tree.png"
 ---
 
-## Context 
+## Introduction
 
-Software product development can be thought of as "spending" scarce
+Software product development can be thought of as spending scarce
 time, effort, and attention in order to (hopefully) deliver customer
 value. The
 [actual details](https://www.reddit.com/r/funny/comments/eccj2/how_to_draw_an_owl/)
 of how this happens in practice are rarely as simple as "go build
-XYZ", instead messy reality consists of a complex web of target users
+XYZ", instead messy reality consists of an interconnected web of target users
 and use cases, deliverables and milestones, noisy estimates, and
 interlocking dependencies. Teams must navigate questions of
 prioritization and sequencing in the context of this complexity and
-uncertainty, and mental models frameworks can be useful tools to help
-impose some order onto the chaos. This post describes one possible
-framing inspired by a well-known combinatorial optimization problem
-over graphs, Prize Collecting Steiner Trees (PCST).
+uncertainty, and mental models or frameworks can be useful tools to
+help impose some order onto the chaos. This post describes one
+possible framing inspired by a well-known combinatorial optimization
+problem over graphs, Prize Collecting Steiner Trees (PCST).
 
 ### Minimum viable product
 
-Let's say you are on a team building a simple analytics service to
-help email marketers better understand the performance of their
-campaigns.
+Say your team is building a simple analytics service to help email
+marketers better understand the performance of their campaigns.
 
-Assuming we understand the target user needs well enough,
-delivering some bare minimum system for this use case will require
-implementing a handful of foundational functionalities. For example,
-perhaps we require:
+Assuming we understand the target user needs well enough, delivering
+some bare minimum system for this use case will require implementing a
+handful of foundational functionalities. For example, perhaps our base
+system needs:
 
 * instrumentation to determine if emails are opened or links are clicked, sending outcomes to ... 
 * collection machinery for capturing and ingesting this data into a ... 
@@ -40,9 +39,9 @@ perhaps we require:
 ### Feature backlog
 
 The magic of software is that additional potential use cases and
-capabilities beyond this basic core are limited only by the
+features beyond this basic core are limited only by the
 imaginations of the users, product management (PM), and engineering
-team. For example, marketing analysts may also wish to do one or more of:
+team. Marketing analysts may also wish to do one or more of:
 
 * join target emails against other customer information (eg, demographics) to slice and dice success rates
 * generate pleasant and informative data visualizations
@@ -50,33 +49,34 @@ team. For example, marketing analysts may also wish to do one or more of:
 * train predictive machine learning (ML) models to optimize email personalization
 * do all of the above from their mobile device.
 
-Of course none of this comes for free. All the additional code has to
-be designed, written, tested, bugfixed, deployed, and
-monitored. Weighing these costs against the expected benefits of the
-resulting features is one of the principal tasks of product
-development.
+None of this comes for free. All the additional code has to be
+designed, written, tested, bugfixed, deployed, and monitored. Weighing
+these costs against the expected benefits of the resulting features is
+one of the principal tasks of product development.
 
 ### Dependency structure
 
-However there also exists an underlying dependency structure among
-these enhancements. It is unlikely that you can successfully ship
-"real-time dashboards" before building "basic charting", and training
-ML models will require being able to integrate your click data with
-other data sources for feature generation. How can we incorporate this
-additional complexity into our planning and decision-making?
+There also exists an underlying dependency structure among these
+enhancements. Like a [strategy game tech
+tree](https://en.wikipedia.org/wiki/Technology_tree), it is unlikely
+that you can successfully ship _real-time dashboards_ before building
+_basic charting_, and training ML models will require being able to
+integrate your click data with other data sources for feature
+generation. How can we incorporate these constraints into our planning
+and decision-making?
 
 ## Put a graph on it
 
 Just as someone with a hammer sees all problems as nails, a Computer
-Science (CS) background can lead a person to perceiving all problems
-as amenable to a _graph_-based approach, which is exactly what we'll
-do here. Let $G=(V,E)$ be a _directed acyclic graph_ (DAG)
-representing our product roadmap, where vertices (or nodes) $v \in V$
-correspond to features or capabilities (such as "basic charting") and
-their incoming edges $e \in E$ correspond to the aforementioned
-dependency structure. For example, if $v_{b}$ "real-time dashboarding"
-requires $v_a$ "basic charting", we can represent it with a directed
-edge $(v_a, v_b)$:
+Science (CS) background can lead to perceiving all problems as
+amenable to _graph_-based approaches, which is exactly what we'll do
+here. Let $G=(V,E)$ be a _directed acyclic graph_ (DAG) representing
+our product roadmap, where vertices (or nodes) $v \in V$ correspond to
+features or capabilities (such as _basic charting_) and their incoming
+edges $e \in E$ correspond to the aforementioned dependency
+structure. For example, if $v_{b}$ "real-time dashboarding" requires
+$v_a$ _basic charting_, we can represent it with a directed edge
+$(v_a, v_b)$:
 
 ![Dependency edge](/assets/img/ab-edge.png){:class="img-responsive" : .center-image}
 
@@ -97,7 +97,7 @@ maximize the objective function
 
 $$ \max_T \sum_{v' \in T_v} p(v') - \sum_{e' \in T_e} c(e')$$
 
-where if $T = (V', E')$ then $T_v$ is the set of vertices $V'$ and
+where, if $T = (V', E')$, then $T_v$ is the set of vertices $V'$ and
 $T_e$ is the set of edges $E'$.
 
 Each candidate solution $T \subset G$ corresponds to some tree rooted
@@ -112,24 +112,24 @@ requirement on $T$, and the inclusion of root $r$.
 It turns out that this is an instance of a well-studied problem in
 theoretical CS known as the
 [Prize-Collecting Steiner Tree (PCST)](https://homepage.univie.ac.at/ivana.ljubic/research/pcstp/)
-(ie, nodes are "prizes"). Example applications of this problem are
+(nodes are "prizes"). Example applications of this problem are
 optimizing network layouts in
 [telecommunication infrastructure](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.29.8697&rep=rep1&type=pdf)
 or
 [sensors in the utility grid](https://core.ac.uk/reader/159147314). The
-basic problem setting is undirected and rootless, whereas the special
-case shown here with directed edges and a defined root $r$ is an
-instance of a _rooted Steiner arborescence_.
+PCST problem setting is an undirected and rootless graph, whereas the
+special case shown here with directed edges and a defined root $r$ is
+an instance of a _rooted Steiner arborescence_.
 
-## Implications for project management 
+## Implications for product development
 
-The utility of a model like this can be evaluated by how it helps us
-reason about situations and consider the effective allocation of
-scarce resources. We can examine some some well-known product
-development failure modes and advice through the lens of this
-framework. In each of these scenarios we show simplified schematic
-_payoff charts_ of total _cost_ (effort expended) on the x-axis
-versus _profit_ (value delivered) on the y-axis.
+The utility of a simplified model like this can be evaluated in terms
+of helping us to reason about real-life situations and manage the
+effective allocation of scarce resources. We can examine some some
+typical failure modes and advice through this lens. In each of these
+scenarios we show simplified schematic _payoff charts_ of total _cost_
+(effort expended) on the x-axis versus _profit_ (value delivered) on
+the y-axis.
 
 ### Peanut-buttering / breadth-first
 
@@ -162,24 +162,29 @@ incremental improvements along this deep dependency path. Returning to
 our marketing analytics example, this could be a development plan
 where we continue to deliver increasingly sophisticated and esoteric
 advanced ML capabilities without ever investing in even basic
-visualization or reporting functionality, or data import/export
-connectivity. 
+visualization, reporting, or data import/export functionalities.
 
 ### Happy medium
 
 In the idealized case, work is done in such a way to continuously
-balance the advancement of two purposes:
+balance the advancement of three purposes:
 
 * deliver immediate value
-* unblock subsequent high-value items.
+* unblock subsequent high-value items
+* gain new information about the graph
 
-If everything works out, the hope is that this approach can navigate
-between the Scylla of overly-diffuse efforts and the Charybdis of
-overy-narrow plans to yield a nice "up and to the right" payoff chart.
+The third item refers to the fact that, in practice, we will not have
+perfect knowledge of costs or payoffs, so learning new information
+about these is itself valuable. 
 
-![Happy medium](/assets/img/medium.JPG){:class="img-responsive" :height="50%" width="50%": .center-image }
+If the first two can be well-balanced, the hope is that this approach
+can navigate between the Scylla of overly-diffuse efforts and the
+Charybdis of overy-narrow plans to yield a nice and consistent "up and
+to the right" payoff chart.
 
-### Graphs all the way down: RPCTS for technical architecture
+![Happy medium](/assets/img/medium.JPG){:class="img-responsive" :height="50%" width="50%" : .center-image }
+
+### Graphs all the way down: PCST for technical architecture
 
 While the motivating examples so far focused on tangible end-user
 value, we can apply the same ideas to more purely technical tracks of
@@ -193,40 +198,44 @@ infrastructure.
 Of course this model is not perfect and elides crucial complicating details that make real situations so interesting:
 
 * team capacity is not an undifferentiated mass of abstract “points” - there are different skillsets, working styles, and team dynamics
-* goals are not simple binary outcomes, the quality and particulars matter tremendously
+* goals are not simple binary outcomes, the quality and particulars of what gets delivered matter tremendously
 * true costs and benefits are not actually known
 * even the graph structure is probably not known
 * everything is continuously changing over time, both in terms of the underlying reality as well as our own imperfect knowledge.
 
-In such an environment, the “prizes” can take the form of new
-information itself, such as learning whether the technical design can
-meet the desired performance constraints or if the target feature
-satisfactorily solve the customer use case. This added dimension means
-that the real-life optimization problem more closely resembles messy
-“explore vs exploit” trade offs than well-understood computational
-bottlenecks.
+As mentioned earlier, in such an environment the “prizes” can take the
+form of new information itself, such as learning whether the technical
+design can meet the desired performance requirements or if the target
+feature satisfactorily solve the customer use case. This added
+dimension means that the real-life optimization problem more closely
+resembles messy “explore vs exploit” trade offs than well-understood
+computational bottlenecks.
 
 ### Your mileage may vary
 
 Would I recommend literally encoding your plans into this format and
-dumping them into solver software to decide the optimal course of
-action? Probably not. Is it nice to have this mental model simmering
-in the background of your consciousness when making judgments under
-uncertainty?  Perhaps. Can visually sketching out approximations of
-these graphs help communicate and coordinate within and across teams?
-Try it and find out!
+dumping them into some solver software to decide your optimal course
+of action? Probably not. Is it helpful to have this mental model
+simmering in the background of your consciousness? Perhaps. Can
+visually sketching out approximations of these graphs help you to
+communicate and coordinate within and across teams? Please try it and
+let me know how it goes!
 
 ## References
 
 The idea of encoding dependencies into graphs is ubiquitous in
-large-scale project management, but most resources I had found were
+large-scale project management, but most discussions I had found were
 more in the context of tracking the _execution_ of some predetermined
-plan, eg with Gantt charts. The messier business of deciding _which_
-areas to pursue at all, and in what order, did not seem to be the
-focus in quite the same way as described here. In some sense,
-[Lean Product Playbook](https://leanproductplaybook.com/) and similar
-resources more closely capture the general idea and motivation, but
-without the explicit graph formalisms..
+plan in terms of its inter-task dependencies, eg with Gantt
+charts. Deciding _which_ areas to pursue at all, and in what order,
+did not seem to be the focus in quite the same way as described here.
+Product roadmaps and other visualization tools have some of this
+flavor, but I could not find much around framing the problem in terms
+of an objective function. The interplay between optimizing value and
+acquiring information in sequential decision-making discussed in
+[The Principles of Product Development Flow](https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009)
+may be closer to this line of thinking. If you know of other similar
+resources or writing please do let me know.
 
 PCST is known to be NP-hard, and has been the subject of very
 interesting research, in particular on Linear Programming (LP)
