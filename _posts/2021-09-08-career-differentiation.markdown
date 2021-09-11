@@ -151,7 +151,7 @@ setting of financial investment:
 - [Schumpeter on Strategy](http://reactionwheel.net/2019/01/schumpeter-on-strategy.html) - Jerry Neumann
 - [Investing in the Unknown and Unknowable](https://scholar.harvard.edu/rzeckhauser/publications/investing-unknown-and-unknowable) - Richard Zeckhauser
 - [Knightian Uncertainty](https://news.mit.edu/2010/explained-knightian-0602) - Peter Dizikes
-- [Time Allocation as Capital Allocation](https://commoncog.com/blog/time-allocation-as-capital-allocation/) - Cedric Chin (heavily inspired by [Fortune's Formula](https://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990) by William Poundstone)
+- [Time Allocation as Capital Allocation](https://commoncog.com/blog/time-allocation-as-capital-allocation/) - Cedric Chin (heavily inspired by [Fortune's Formula](https://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990) by William Poundstone- [Against the Gods](https://www.amazon.com/Against-Gods-Remarkable-Story-Risk/dp/0471295639) - Peter Bernstein
 
 ### Putting it all together: what's your edge?
 
