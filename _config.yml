@@ -20,7 +20,7 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'David A's Notes'
+title:		           'David A\'s Notes'
 description:	       'YOUR OFFWORLD INVESTMENTS IN ARTIFICIAL DUMBNESS PAID \$\? IN DIVIDENDS'
 author:              'David M. Andrzejewski'
 
