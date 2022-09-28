@@ -178,9 +178,13 @@ differently.
 
 ## Acknowledgments
 
-Many thanks to [Cedric Chin](https://twitter.com/ejames_c),
-[Jerry Neumann](https://twitter.com/ganeumann), and
-[Erik Torenberg](https://twitter.com/eriktorenberg) for "thinking in
-public" via blogs, Twitter, newsletters, etc!
+Thanks to my PhD co-advisor [Mark
+Craven](https://www.biostat.wisc.edu/~craven/) for the "secret weapon"
+framing and introduction to Hamming's [You and your
+research](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html).
+Also many thanks to [Cedric Chin](https://twitter.com/ejames_c),
+[Jerry Neumann](https://twitter.com/ganeumann), and [Erik
+Torenberg](https://twitter.com/eriktorenberg) for "thinking in public"
+via blogs, Twitter, newsletters, etc!
 
 
