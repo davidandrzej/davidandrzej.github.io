@@ -42,7 +42,7 @@ While the initial post acts as a hook or advertisement for the rest of the detai
 
 "A picture is worth 1000 words" - how does MapReduce work? Take a look:
 
-![](/assets/img/map-reduce.png){:class="img-responsive" :height="50%" width="50%" : .center-image }
+![](/assets/img/map-reduce.png){:class="img-responsive center-image" width="80%"}
 
 This diagram captures the essentials:
 * what are the major components?
@@ -54,7 +54,7 @@ Importantly, it also _omits_ details that would only obscure the basic idea:
 * what formats are the input / output files in? 
 * what about calculations that require multiple iterations?
 
-Even if there are details that an implementation-minded expert knows and cares about, it is possible to make an intentional decision to elide them in order to more crisply convey the core idea.
+Even if there are details that an implementation-minded expert knows and cares about, it is possible to make an intentional decision to leave them out in order to more crisply convey the core idea.
 ### End-to-end examples
 #### [Adjusting Machine Learning Decisions for Equal Opportunity and Counterfactual Fairness (Wang, Sridhar & Blei 2023)](https://www.cs.columbia.edu/~blei/papers/WangSridharBlei2023.pdf)
 
