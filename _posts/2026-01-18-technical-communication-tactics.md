@@ -5,7 +5,7 @@ published: 2026-01-24
 image: school.jpg
 ---
 
-> Con el tiempo, esos Mapas Desmesurados no satisficieron y los Colegios de Cartógrafos levantaron un Mapa del Imperio, que tenía el tamaño del Imperio y coincidía puntualmente con él. -_[Del Rigor en la Ciencia]_(https://borgestodoelanio.blogspot.com/2017/10/jorge-luis-borges-en-su-voz-del-rigor.html), Jorge Luis Borges
+> Con el tiempo, esos Mapas Desmesurados no satisficieron y los Colegios de Cartógrafos levantaron un Mapa del Imperio, que tenía el tamaño del Imperio y coincidía puntualmente con él. -[_Del Rigor en la Ciencia_](https://borgestodoelanio.blogspot.com/2017/10/jorge-luis-borges-en-su-voz-del-rigor.html), Jorge Luis Borges
 
 In software projects with significant collaboration and coordination dimensions, many problems are ultimately *communication* problems. Diverse stakeholders can have subtly different mental models of the critical behaviors and constraints, and a wide variety of processes (eg, agile) and tools (eg, requirements and design docs) have been developed to try and help teams converge and align their thinking as quickly and easily as possible.
 
@@ -17,6 +17,7 @@ A common tactic is to develop an intuition for some domain by considering the mo
 2. try to put it all together at the end
 3. see if things line up with everyone’s expectations
 4. if necessary, go back to 1. 
+
 In this methodology, the pieces are guaranteed to be highly realistic and detailed expressions of everyone’s thinking, but of course these artifacts are very expensive to produce and even two iterations of this process would not be practical.
 
 At the other end, imagine a workflow where everyone builds out ridiculously low-fidelity versions (say, crayon drawings) of their pieces and then attempts to integrate and evaluate the results. This would be dramatically faster and cheaper, but the elision of any meaningful detail would limit the usefulness of the exercise. 
@@ -35,12 +36,13 @@ Most of my research paper-reading experience has been around machine learning (M
  
 The authors promoted their work with a [short and simple post](https://x.com/Tim_Dettmers/status/1661379354507476994) that starts with the headline: "QLoRA: 4-bit finetuning of LLMs." Follow-up posts begin with a handful of concise and digestible bullet points, such as "97% ChatGPT performance on 1 consumer GPU in 12 hours." Further down the thread, the author gets into deep dive technical details and surprising quantitative results. 
 
-While the initial post acts as a hook or advertisement for the rest of the details, what is great is that, for some use cases, _one can stop right there_ - the core idea is right there in (much) fewer than 140 characters. Investing the effort into honing your proposal or idea into such a finely distilled summary can be well worth it.
+While the initial post acts as a hook or advertisement for the rest of the details, what is great is that, for some use cases, _one can stop right there_ - the core idea is given in (much) fewer than 140 characters. Investing the effort into honing your proposal or idea into such a finely distilled summary can be well worth it.
 ### Block diagrams
 #### [MapReduce: Simplified Data Processing on Large Clusters (Dean & Ghemawat 2004)](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
 "A picture is worth 1000 words" - how does MapReduce work? Take a look:
-![[map-reduce.png]]
+
+![](/assets/img/map-reduce.png){:class="img-responsive" :height="50%" width="50%" : .center-image }
 
 This diagram captures the essentials:
 * what are the major components?
@@ -64,7 +66,7 @@ The system proposed in the paper is very general, but is made much clearer with 
 
 When appropriately deployed, few human communication technologies can beat mathematical formulas for precision and succinctness.  Let's see the "formula that launched $1T of capex":
 
-$\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\!\left(\frac{Q K^\top}{\sqrt{d_k}}\right) V$
+$\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\left(\frac{Q K^\top}{\sqrt{d_k}}\right) V$
 
 An important prerequisite to this guidance is the requirement to first build out the scaffolding in the form of clear supporting definitions. If we don't know what $Q$ or `softmax` are, this is not very illuminating. Also, if the subject matter is not a natural fit for this kind of expression, trying to use it anyways can result in an awkward and confusing formulation.
 ### Pseudocode
